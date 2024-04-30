@@ -49,7 +49,7 @@ export class EditQuestionUseCase {
     const currentQuestionAttachments =
       await this.questionAttachmentsRepository.findManyByQuestionId(questionId)
 
-    const questionAttachementList = new QuestionAttachmentList(
+    const questionAttachmentList = new QuestionAttachmentList(
       currentQuestionAttachments,
     )
 
@@ -60,11 +60,11 @@ export class EditQuestionUseCase {
       })
     })
 
-    questionAttachementList.update(questionAttachments)
+    questionAttachmentList.update(questionAttachments)
 
     question.title = title
     question.content = content
-    question.attachments = questionAttachementList
+    question.attachments = questionAttachmentList
 
     await this.questionsRepository.save(question)
 
